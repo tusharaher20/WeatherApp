@@ -1,96 +1,230 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script defer src="/_vercel/insights/script.js"></script>
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/@exampledev/new.css@1.1.2/new.min.css"
-    />
-    <title>Vercel HTML Starter</title>
-    <meta
-      name="description"
-      content="High-performance HTML based website template."
-    />
-  </head>
-  <body>
-    <h1>Vercel HTML Starter</h1>
-    <p>
-      This template is a simple, but powerful single
-      <code>index.html</code> file deployed to
-      <a href="https://vercel.com">Vercel</a>. When your site is deployed, all
-      static assets (like HTML, JavaScript, CSS, images, and more) are deployed
-      globally to every
-      <a href="https://vercel.com/docs/concepts/edge-network/overview"
-        >Vercel Edge Network</a
-      >
-      region.
-    </p>
-    <h2>Simple, privacy-friendly analytics</h2>
-    <p>
-      Want to understand your visitor traffic? Vercel Analytics gives you
-      first-party, privacy-friendly traffic analytics for your HTML site. This
-      template is already configured using the following script:
-    </p>
-    <pre><code>&lt;script defer src="/_vercel/insights/script.js"&gt;&lt;/script&gt;</code></pre>
-    <p>
-      Learn more about
-      <a href="https://vercel.com/analytics">Vercel Analytics</a>.
-    </p>
-    <h2>Integrated with git</h2>
-    <p>
-      Deploying updates to your site is as simple as
-      <code>git push</code> thanks to Vercel's advanced
-      <a href="https://vercel.com/docs/concepts/git">Git Integration</a>.
-      Support for GitHub, GitLab, Bitbucket is zero-configuration, and with the
-      flexible Vercel CLI and API, you can integrate with any tool possible.
-    </p>
-    <p>
-      Learn more about
-      <a href="https://vercel.com/docs/concepts/git">Git Integration</a>.
-    </p>
-    <h2>Fast <code>gzip</code> compression</h2>
-    <p>
-      To help ensure the smallest possible file sizes for your static assets,
-      the Vercel Edge Network compresses files by default using
-      <code>gzip</code>. You can also optionally use
-      <code>brotli</code> compressesion if you prefer.
-    </p>
-    <p>
-      Learn more about
-      <a href="https://vercel.com/docs/concepts/edge-network/compression"
-        >compression</a
-      >.
-    </p>
-    <h2>Advanced routing configuration</h2>
-    <p>
-      Vercel gives you a variety of ways to configure the routing of your
-      website. For example, adding redirects, rewrites, or headers to your page.
-      While you can use <code>vercel.json</code> to define these through JSON,
-      you can also express your routing configuration as code using
-      <a href="https://vercel.com/docs/concepts/functions/edge-middleware"
-        >Vercel Edge Middleware</a
-      >.
-    </p>
-    <p>
-      Middleware runs before the
-      <a href="https://vercel.com/docs/concepts/edge-network/caching"
-        >Vercel Edge Network Cache</a
-      >, so you can configure routing exactly as your application needs. For
-      example, this template uses <code>middleware.js</code> defined in the root
-      of the repository to add additional security headers to the site:
-    </p>
-    <pre><code>referrer-policy: origin-when-cross-origin
-strict-transport-security: max-age=31536000; includeSubDomains; preload
-x-content-type-options: nosniff
-x-dns-prefetch-control: on
-x-frame-options: DENY</code></pre>
-    <p>
-      Learn more about
-      <a href="https://vercel.com/docs/concepts/functions/edge-middleware"
-        >Vercel Edge Middleware</a
-      >.
-    </p>
-  </body>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        .card {
+            background: rgb(255, 255, 255);
+            background: linear-gradient(132deg, rgba(255, 255, 255, 1) 0%, rgba(255, 212, 123, 1) 18%, rgba(255, 172, 0, 1) 100%);
+            max-width: 300px;
+            padding: 16px;
+            border-radius: 25px;
+            box-shadow: 12px 12px 14px 0px rgba(0, 0, 0, 0.59);
+            border: 1px solid #fff;
+            /* Top and Left border color */
+            border-bottom: 1px solid #000;
+            /* Bottom border color */
+            border-right: 1px solid #000;
+            /* Right border color */
+
+        }
+
+        .search-bar {
+            background-color: #fff1e9;
+            display: flex;
+            align-items: center;
+            border: 1px solid #e2e8f0;
+            border-radius: 25px;
+            padding: 8px;
+            box-shadow: 0.5px 0.5px 1px;
+        }
+
+        .search-input {
+            background-color: #fff1e9;
+            flex: 1;
+            border: none;
+            outline: none;
+        }
+
+        .search-icon {
+            cursor: pointer;
+        }
+
+        .search-button {
+            /* background-color: #3490dc; */
+            color: #fff;
+            padding: 0px 10px;
+            border: none;
+            border-radius: 8px;
+            margin-left: 8px;
+            cursor: pointer;
+        }
+
+        .bg_Card {
+            background-color: #ffc2ad;
+            font-family: cursive;
+            font-size: 13px;
+        }
+
+        /* Center the card on the screen */
+        .h-screen {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .search_section {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .weatherIconimage {
+            max-width: 100px;
+        }
+
+        .weather_section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            /* height: 30vh; */
+            padding-top: 20px;
+        }
+
+        .details {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+
+        .col {
+            text-align: center;
+
+        }
+
+        .IconHumid {
+            max-width: 50px;
+            display: block;
+            margin: auto;
+        }
+
+        .outerWeather {
+            width: 100%;
+            background: #fff8e4;
+            padding: 20px 10px;
+            margin-top: 30px;
+            border-radius: 25px;
+            border: 1px solid #e2e8f0;
+            border-radius: 25px;
+            padding: 8px;
+            box-shadow: 7.5px 7.5px 20px -7px;
+        }
+
+        .temperatureReading {
+            font-weight: 700;
+            font-size: 30px;
+        }
+
+        .cityWeather {
+            font-size: 20px;
+        }
+    </style>
+    <title>Weather Card</title>
+</head>
+
+<body>
+    <div class="h-screen bg_Card">
+        <div class="card bg-white">
+            <div class="search_section ">
+                <div class="search-bar">
+                    <input type="text" class="search-input" placeholder="Search location...">
+                    <button class="search-button">
+                        <img src="/Pro2WeatherApp/weatherImages/searchicon222.png">
+                    </button>
+
+                </div>
+            </div>
+
+            <div class="weather_section">
+                <img class="weatherIconimage" src="/Pro2WeatherApp/weatherImages/sunnyIcon.png" alt="">
+                <h1 class="temperatureReading">2°C</h1>
+                <h2 class="cityWeather">Bengaluru</h2>
+                <div class="outerWeather">
+
+                    <div class="details">
+                        <div class="col">
+                            <img class="IconHumid" src="/Pro2WeatherApp/weatherImages/humidity222.png" alt="">
+                            <div>
+                                <p class="humidity">50%</p>
+                                <p>Humidity</p>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <img class="IconHumid" src="/Pro2WeatherApp/weatherImages/windspeed22.png" alt="">
+                            <div>
+                                <p class="windSpeed">50Km/h</p>
+                                <p>Wind Speed</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+
+        const apiKey = "56b18bb51e95b3d3a7320664e7185493";
+        const apiUrl = "https://api.openweathermap.org/data/2.5/weather?units=metric";
+
+
+        // Select the input and button elements
+        const SearchBox = document.querySelector(".search-bar input");
+        const SearchIcon = document.querySelector(".search-bar button");
+
+        const weatherIcon = document.querySelector(".weatherIconimage"); 
+
+        async function checkWeather(city) {
+            // try {
+            // Fetch the weather data from the API
+            const response = await fetch(`${apiUrl}&q=${encodeURIComponent(city)}&appid=${apiKey}`);
+            const data = await response.json();
+
+            // Check if the response is valid
+            // if (data.cod == 200) {
+            // Display the weather data in the HTML elements
+            document.querySelector(".cityWeather").innerHTML = data.name;
+            document.querySelector(".temperatureReading").innerHTML = Math.round(data.main.temp) + "°C";
+            document.querySelector(".humidity").innerHTML = data.main.humidity + "%";
+            document.querySelector(".windSpeed").innerHTML = data.wind.speed + " km/h";
+
+            if (data.weather[0].main == "Clouds") {
+                weatherIcon.src = "/Pro2WeatherApp/weatherImages/clouds.png"
+            } else if (data.weather[0].main == "Rain") {
+                weatherIcon.src = "/Pro2WeatherApp/weatherImages/rainyIcon.png"
+            } else if (data.weather[0].main == "Clear") {
+                weatherIcon.src = "/Pro2WeatherApp/weatherImages/sunnyIcon.png"
+            } else if (data.weather[0].main == "Snow") {
+                weatherIcon.src = "/Pro2WeatherApp/weatherImages/snow.png"
+            } else if (data.weather[0].main == "Drizzle") {
+                weatherIcon.src = "/Pro2WeatherApp/weatherImages/drizzle.png"
+            } else if (data.weather[0].main == "Mist") {
+                weatherIcon.src = "/Pro2WeatherApp/weatherImages/mist.png"
+            }
+
+
+            //     } else {
+            //         // Display an alert message if the city is not found
+            //         alert("City not found. Please enter a valid city name.");
+            //     }
+            // } catch (error) {
+            //     // Display an alert message if the API request fails
+            //     alert("Error fetching weather data. Please try again later.");
+            // }
+        }
+        // Add an event listener to the button element
+        SearchIcon.addEventListener("click", () => {
+            // Call the checkWeather function with the input value
+            checkWeather(SearchBox.value);
+        });
+
+        // Initialize the app with a default city
+        checkWeather("bangalore");
+        // Add event listener to search button
+    </script>
+</body>
+
 </html>

@@ -132,28 +132,28 @@
                 <div class="search-bar">
                     <input type="text" class="search-input" placeholder="Search location...">
                     <button class="search-button">
-                        <img src="/Pro2WeatherApp/weatherImages/searchicon222.png">
+                        <img src="searchicon222.png">
                     </button>
 
                 </div>
             </div>
 
             <div class="weather_section">
-                <img class="weatherIconimage" src="/Pro2WeatherApp/weatherImages/sunnyIcon.png" alt="">
+                <img class="weatherIconimage" src=" sunnyIcon.png" alt="">
                 <h1 class="temperatureReading">2°C</h1>
                 <h2 class="cityWeather">Bengaluru</h2>
                 <div class="outerWeather">
 
                     <div class="details">
                         <div class="col">
-                            <img class="IconHumid" src="/Pro2WeatherApp/weatherImages/humidity222.png" alt="">
+                            <img class="IconHumid" src=" humidity222.png" alt="">
                             <div>
                                 <p class="humidity">50%</p>
                                 <p>Humidity</p>
                             </div>
                         </div>
                         <div class="col">
-                            <img class="IconHumid" src="/Pro2WeatherApp/weatherImages/windspeed22.png" alt="">
+                            <img class="IconHumid" src=" windspeed22.png" alt="">
                             <div>
                                 <p class="windSpeed">50Km/h</p>
                                 <p>Wind Speed</p>
@@ -175,7 +175,7 @@
         const SearchBox = document.querySelector(".search-bar input");
         const SearchIcon = document.querySelector(".search-bar button");
 
-        const weatherIcon = document.querySelector(".weatherIconimage"); 
+        const weatherIcon = document.querySelector(".weatherIconimage");
 
         async function checkWeather(city) {
             // try {
@@ -192,17 +192,17 @@
             document.querySelector(".windSpeed").innerHTML = data.wind.speed + " km/h";
 
             if (data.weather[0].main == "Clouds") {
-                weatherIcon.src = "/Pro2WeatherApp/weatherImages/clouds.png"
+                weatherIcon.src = " clouds.png"
             } else if (data.weather[0].main == "Rain") {
-                weatherIcon.src = "/Pro2WeatherApp/weatherImages/rainyIcon.png"
+                weatherIcon.src = " rainyIcon.png"
             } else if (data.weather[0].main == "Clear") {
-                weatherIcon.src = "/Pro2WeatherApp/weatherImages/sunnyIcon.png"
+                weatherIcon.src = " sunnyIcon.png"
             } else if (data.weather[0].main == "Snow") {
-                weatherIcon.src = "/Pro2WeatherApp/weatherImages/snow.png"
+                weatherIcon.src = " snow.png"
             } else if (data.weather[0].main == "Drizzle") {
-                weatherIcon.src = "/Pro2WeatherApp/weatherImages/drizzle.png"
+                weatherIcon.src = " drizzle.png"
             } else if (data.weather[0].main == "Mist") {
-                weatherIcon.src = "/Pro2WeatherApp/weatherImages/mist.png"
+                weatherIcon.src = " mist.png"
             }
 
 
